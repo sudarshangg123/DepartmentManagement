@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Department Management{% endblock %}
+
+{% block content %}
+<div class="form-card">
+    <h2>Department Management</h2>
+    <div class="form-actions">
+        <button><a href="/createdepartment" class="btn-create">Create Department</a></button>
+    </div>
+    
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Sr. No</th>
+                <th>Department Name</th>
+                <th>Description</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dept in department %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ dept.dept_name }}</td>
+                <td>{{ dept.description }}</td>
+                <td><a href="/edit/{{ dept.dept_id }}" class="action-links">Edit</a></td>
+                <td><a href="/delete/{{ dept.dept_id }}" class="action-links" onclick="return confirm('Are you sure?');">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

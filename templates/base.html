@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Admin Dashboard{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+</head>
+<body>
+
+<!-- Header Section -->
+<header class="header">
+    <div class="logo">
+        <!-- <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo-img"> -->
+        <h1 class="logo-text">Admin Dashboard</h1>
+    </div>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Departments</a></li>
+            <li><a href="/viewrole">Roles</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Side Navigation Bar -->
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <h3>Navigation</h3>
+    </div>
+    <ul class="sidebar-links">
+        <li><a href="/createdepartment">Create Department</a></li>
+        <li><a href="/addrole">Create Role</a></li>
+    </ul>
+</aside>
+
+<!-- Main Content Area -->
+<main class="main-content">
+    <div class="content-container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</main>
+
+</body>
+</html>

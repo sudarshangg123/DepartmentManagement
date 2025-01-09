@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Role Management{% endblock %}
+
+{% block content %}
+<div class="form-card">
+    <h2>Roles List</h2>
+    <div class="form-actions">
+        <button><a href="/addrole" class="btn-create">Create Role</a></button>
+    </div>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Sr. No</th>
+                <th>Role Name</th>
+                <th>Description</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for role in roles %}
+            <tr>
+                <td>{{ role.role_id }}</td>
+                <td>{{ role.role_name }}</td>
+                <td>{{ role.description }}</td>
+                <td><a href="updaterole/{{ role.role_id }}" class="action-links">Edit</a></td>
+                <td><a href="deleterole/{{ role.role_id }}" class="action-links" onclick="return confirm('Are you sure?');">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
